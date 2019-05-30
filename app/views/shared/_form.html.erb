@@ -1,0 +1,20 @@
+
+<% if type == 'user' %>
+  <% action_url = users_url %>
+  <% input_val = 'Sign Up' %>
+<% else %>
+  <% action_url = session_url %>
+  <% input_val = 'Login' %>
+<% end %>
+
+
+<form action="<%= action_url %>" method="post">
+  <%= auth_token %>
+  <label for="username">Username</label>
+  <input id="username" type="text" name="<%= type %>[username]">
+  <br>
+  <label for="password">Password</label>
+  <input type="password" name="<%= type %>[password]" id="password">
+  <br>
+  <input type="submit" value="<%= input_val %>">
+</form>
