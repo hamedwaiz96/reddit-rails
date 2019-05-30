@@ -1,24 +1,15 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+This is a Reddit Clone created from scratch using Rails in my web development course.
 
-Things you may want to cover:
+-User authentication created from scratch as well.
 
-* Ruby version
 
-* System dependencies
+Includes:
 
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+  -Subs
+  -Posts
+  -Users
+  -Comments
+  -Nested Comments
+  -Votes
