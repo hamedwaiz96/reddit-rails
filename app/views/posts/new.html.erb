@@ -1,0 +1,5 @@
+<%= flash[:errors4] %>
+
+<h1>New Post</h1>
+
+<%= render partial: 'form', locals: {action: 'new', post: @post, sub: @sub} %>

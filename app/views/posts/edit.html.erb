@@ -1,0 +1,5 @@
+<%= flash[:errors5] %>
+
+<h1>Edit <%= @post.title %></h1>
+
+<%= render partial: 'form', locals: {action: 'edit', post: @post, sub: @sub} %>

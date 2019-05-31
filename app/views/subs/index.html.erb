@@ -1,0 +1,13 @@
+<h1>All the Subs</h1>
+
+<a href="<%= new_sub_url %>">Make a new sub</a>
+
+<ul>
+  <% @subs.each do |sub| %>
+    <li><a href="<%= sub_url(sub) %>"><%= sub.title %> [<%= sub.description.truncate_words(4) %>]</a>
+      <% if current_user && current_user == sub.moderator %>
+        <a href="<%= edit_sub_url(sub) %>">Edit</a>
+      <% end %>
+    </li>
+  <% end %>
+</ul>

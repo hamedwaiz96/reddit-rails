@@ -7,6 +7,17 @@ class User < ApplicationRecord
 
   after_initialize :ensure_session_token
 
+  has_many :subs,
+    primary_key: :id,
+    foreign_key: :moderator_id,
+    class_name: 'Sub',
+    inverse_of: :moderator
+
+  has_many :posts,
+    primary_key: :id,
+    foreign_key: :author_id,
+    class_name: 'Post'
+
   def generate_random_token
     SecureRandom::urlsafe_base64(16)
   end

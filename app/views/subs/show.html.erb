@@ -1,0 +1,21 @@
+<h1><%= @sub.title %>'s Show Page</h1>
+
+<p><%= @sub.description %></p>
+<br>
+<p><a href="<%= new_sub_post_url(@sub) %>">New Post</a></p>
+<br>
+<ul>
+  <% @posts.each do |post| %>
+    <li>By: <a href="<%= user_url(post.author) %>"><%= post.author.username %></a></li>
+    <li><a href="<%= post_url(post) %>"><%= post.title %></a></li>
+    <li><a href="<%= post_url(post) %>"><%= post.content %></a></li>
+    <li><img src="<%= post.url %>" alt=""></li>
+    <form action="<%= post_url(post) %>" method="post">
+      <%= auth_token %>
+      <input type="hidden" name="_method" value="delete">
+      <input type="submit"value="Delete">
+    </form>
+  <% end %>
+</ul>
+<br>
+<a href="<%= subs_url %>">Back to Subs</a>
