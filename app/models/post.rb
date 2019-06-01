@@ -14,6 +14,11 @@ class Post < ApplicationRecord
     class_name: 'User',
     inverse_of: :posts
 
-  
+  has_many :comments,
+    primary_key: :id,
+    foreign_key: :post_id,
+    class_name: 'Comment',
+    inverse_of: :post,
+    dependent: :destroy
 
 end

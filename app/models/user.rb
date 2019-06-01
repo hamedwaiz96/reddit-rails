@@ -18,6 +18,13 @@ class User < ApplicationRecord
     foreign_key: :author_id,
     class_name: 'Post'
 
+  has_many :comments,
+    primary_key: :id,
+    foreign_key: :author_id,
+    class_name: 'User',
+    inverse_of: :author,
+    dependent: :destroy
+
   def generate_random_token
     SecureRandom::urlsafe_base64(16)
   end

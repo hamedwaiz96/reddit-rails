@@ -15,3 +15,18 @@
 <img src="<%= @post.url %>" alt="">
 <br>
 <p><a href="<%= @post.url %>"><%= @post.url %></a></p>
+<br>
+<ul>
+<% @post.comments.each do |comment| %>
+  <% if comment.parent_comment_id == nil %>
+    <li>
+        <%= render("comments/comment", comment: comment) %>
+    </li>
+  <% end %>
+<% end %>
+</ul>
+
+
+<% if current_user %>
+  <a href="<%= new_post_comment_url(@post) %>">Add New Comment</a>
+<% end %>
