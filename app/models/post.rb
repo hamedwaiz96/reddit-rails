@@ -1,15 +1,19 @@
 class Post < ApplicationRecord
-  validates :title, :sub_id, :author_id, presence: true
+  validates :title, :author_id, presence: true
+  validates :subs, presence: { message: "Choose at least one" }
 
-  belongs_to :sub,
-    primary_key: :id,
-    foreign_key: :sub_id,
-    class_name: 'Sub',
-    inverse_of: :posts
+  has_many :post_subs, inverse_of: :post, dependent: :destroy
+
+  has_many :subs,
+    through: :post_subs,
+    source: :sub
 
   belongs_to :author,
     primary_key: :id,
     foreign_key: :author_id,
     class_name: 'User',
     inverse_of: :posts
+
+  
+
 end

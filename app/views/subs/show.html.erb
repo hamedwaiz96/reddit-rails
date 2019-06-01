@@ -2,10 +2,10 @@
 
 <p><%= @sub.description %></p>
 <br>
-<p><a href="<%= new_sub_post_url(@sub) %>">New Post</a></p>
+<p><a href="<%= new_post_url %>">New Post</a></p>
 <br>
 <ul>
-  <% @posts.each do |post| %>
+  <% @sub.posts.each do |post| %>
     <li>By: <a href="<%= user_url(post.author) %>"><%= post.author.username %></a></li>
     <li><a href="<%= post_url(post) %>"><%= post.title %></a></li>
     <li><a href="<%= post_url(post) %>"><%= post.content %></a></li>
